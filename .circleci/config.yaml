@@ -1,0 +1,36 @@
+# version: 2.1
+
+# orbs:
+#   aws-ecr: circleci/aws-ecr@0.0.4
+
+# workflows:
+#   build_test_deploy:
+#     jobs:
+#       - build:
+#           filters:
+#             branches:
+#               only: test
+#       - aws-ecr/build_and_push_image:
+#           requires:
+#             - build
+#           context: cleanier-test-orders
+#           region: ap-northeast-2
+#           account-url: ${AWS_ECR_ACCOUNT_URL}
+#           tag: ${CIRCLE_BUILD_NUM}
+#           repo: ${REPO_NAME}
+#           filters:
+#             branches:
+#               only: test
+# jobs:
+#   build:
+#     docker:
+#       - image: circleci/golang:1.15
+#     working_directory: ~/grm-api
+#     steps:
+#       - checkout
+#       - run:
+#           name: Dependendcies
+#           command: go get ./...
+#       - run:
+#           name: Build
+#           command: go build
