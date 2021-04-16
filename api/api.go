@@ -1,6 +1,7 @@
 package api
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -21,8 +22,11 @@ type (
 )
 
 func (h *handler) CreateUser(c echo.Context) error {
+	s := "[CreateUser]"
+
 	u := new(User)
 	if err := c.Bind(u); err != nil {
+		log.Printf("%s %v\n", s, err)
 		return err
 	}
 	return c.JSON(http.StatusCreated, u)
