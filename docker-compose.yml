@@ -11,10 +11,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PORT: ${DB_PORT}
       DB_HOST: ${DB_HOST}    
-      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-      ENCRYPT_KEY: ${ENCRYPT_KEY}
+      TOKEN_SECRET: ${TOKEN_SECRET}
     ports:
       - "80:80"
     depends_on:

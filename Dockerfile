@@ -8,6 +8,7 @@ FROM scratch
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY echo-template .
+COPY .env .
 
 EXPOSE 80
 

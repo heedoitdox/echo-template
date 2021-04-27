@@ -7,11 +7,12 @@ import (
 )
 
 type Configuration struct {
-	DB_USERNAME string `env:"DB_USERNAME"`
-	DB_PASSWORD string `env:"DB_PASSWORD"`
-	DB_PORT     string `env:"DB_PORT"`
-	DB_HOST     string `env:"DB_HOST"`
-	DB_NAME     string `env:"DB_NAME"`
+	DB_USERNAME  string `env:"DB_USERNAME"`
+	DB_PASSWORD  string `env:"DB_PASSWORD"`
+	DB_PORT      string `env:"DB_PORT"`
+	DB_HOST      string `env:"DB_HOST"`
+	DB_NAME      string `env:"DB_NAME"`
+	TOKEN_SECRET string `env:"TOKEN_SECRET"`
 }
 
 var once sync.Once
@@ -24,6 +25,7 @@ func GetConfig() *Configuration {
 		configuration.DB_HOST = os.Getenv("DB_HOST")
 		configuration.DB_PORT = os.Getenv("DB_PORT")
 		configuration.DB_NAME = os.Getenv("DB_NAME")
+		configuration.TOKEN_SECRET = os.Getenv("TOKEN_SECRET")
 	})
 	return configuration
 }

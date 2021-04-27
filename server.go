@@ -1,7 +1,7 @@
 package main
 
 import (
-	route "ksd-grm-api/route"
+	route "echo-template/route"
 )
 
 func main() {

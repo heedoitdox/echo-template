@@ -2,8 +2,8 @@
 package database
 
 import (
+	. "echo-template/config"
 	"fmt"
-	. "ksd-grm-api/config"
 	"log"
 	"sync"
 
@@ -17,6 +17,7 @@ var gormDB *gorm.DB
 func GetDB() *gorm.DB {
 	once.Do(func() {
 		config := GetConfig()
+		log.Printf("####%v\n", config)
 		dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", config.DB_USERNAME, config.DB_PASSWORD, config.DB_HOST, config.DB_PORT, config.DB_NAME)
 		gormDb, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 		if err != nil {

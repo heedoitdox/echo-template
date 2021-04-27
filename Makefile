@@ -6,7 +6,7 @@ run:
 
 up:	
 	rm -f grm-api-linux
-	GOOS=linux GOARCH=amd64 go build -o grm-api-linux
+	GOOS=linux GOARCH=amd64 go build -o echo-template
 	docker-compose up --build
 
 clean:
