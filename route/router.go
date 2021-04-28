@@ -16,6 +16,7 @@ func Init() *echo.Echo {
 	e.Use(middleware.Recover())
 
 	v1 := e.Group("/v1")
+	v1.GET("/send", SendMessageToSlack)
 	u := e.Group("/user")
 	u.Use(middleware.JWTWithConfig(utils.JWTConfig))
 	// v1.GET("/healthcheck", Healthcheck)
