@@ -9,6 +9,13 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+func SendMessageToSlack(c echo.Context) error {
+	if err := utils.SendMessageToSlack(); err != nil {
+		return c.NoContent(http.StatusInternalServerError)
+	}
+	return c.NoContent(http.StatusOK)
+}
+
 func Login(c echo.Context) error {
 	jwt, err := utils.CreateJWT(1, 10)
 	if err != nil {
